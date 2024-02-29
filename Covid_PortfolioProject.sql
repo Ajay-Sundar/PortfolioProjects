@@ -96,7 +96,7 @@ order by 1,2
 
 
 -- Total Population vs Vaccinations
--- Shows Percentage of Population that has recieved at least one Covid Vaccine
+-- Shows the Rolling Sum of Vaccinations
 
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
 , SUM(CAST(vac.new_vaccinations AS FLOAT)) OVER (Partition by dea.Location order by dea.location, dea.date) as RollingPeopleVaccinated
